@@ -14,7 +14,8 @@ $db = new dbController();
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico">
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <!-- My CSS -->
   <link rel="stylesheet" href="style.css">
 
@@ -26,7 +27,8 @@ $db = new dbController();
   <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top ">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">Ghiffari</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -41,10 +43,7 @@ $db = new dbController();
             <a class="nav-link" href="#guru">Guru</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#kelas">Kelas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="table.php">Siswa</a>
+            <a class="nav-link" href="#siswa">Siswa</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -57,14 +56,14 @@ $db = new dbController();
   <!-- End Navbar -->
 
   <!-- card -->
-  <div class="container" id="guru">
+  <div class="container" id="jurusan">
     <h1 class=" text-center mb-5 ">Jurusan</h1>
     <div class="row text-center justify-content-center ">
       <?php
       $sql1 = "SELECT * FROM t_jurusan";
       $row1 = $db->getALL($sql1);
-      foreach ($row1 as $jurusan) :
-      ?>
+      foreach ($row1 as $jurusan):
+        ?>
         <div class="card-all col-md-4 col-xl-4 mb-3">
           <div class="card" style="width: 18rem;">
             <img src="img/jurusan/<?php echo $jurusan['f_nama']; ?>.jpg" class="card-img-top" alt="Jurusan">
@@ -90,8 +89,8 @@ $db = new dbController();
       <?php
       $sql2 = "SELECT * FROM t_guru";
       $row2 = $db->getALL($sql2);
-      foreach ($row2 as $guru) :
-      ?>
+      foreach ($row2 as $guru):
+        ?>
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row g-0">
             <div class="col-md-4">
@@ -148,16 +147,22 @@ $db = new dbController();
             on t_siswa.f_idjurusan=t_jurusan.f_idjurusan 
             ORDER BY t_kelas.f_idkelas, t_jurusan.f_idjurusan, t_siswa.f_idsiswa;";
             $row = $db->getALL($sql);
-            foreach ($row as $siswa) :
+            foreach ($row as $siswa):
 
-            ?>
+              ?>
               <tr>
                 <th scope="row">
                   <?php echo $i++; ?>
                 </th>
-                <td><?php echo $siswa['f_nama'] ?></td>
-                <td><?php echo $siswa['f_kelas'] ?></td>
-                <td><?php echo $siswa['f_jurusan'] ?></td>
+                <td>
+                  <?php echo $siswa['f_nama'] ?>
+                </td>
+                <td>
+                  <?php echo $siswa['f_kelas'] ?>
+                </td>
+                <td>
+                  <?php echo $siswa['f_jurusan'] ?>
+                </td>
               </tr>
             <?php endforeach ?>
 
@@ -175,7 +180,9 @@ $db = new dbController();
         <a href="https://www.instagram.com/ghffxyz/" target="_blank" class="text-black fw-bold">Ghiffari</a>
       </p>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
